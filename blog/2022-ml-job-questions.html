@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from www.scottfreitas.com/blog/2022-ml-job-questions by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Mar 2024 21:48:10 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Gaegu:300,400,700" rel="stylesheet">
+
+  <!-- Enable responsiveness on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Share card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@scottafreitas" />
+  <meta name="twitter:creator" content="@scottafreitas" />
+  <meta property="og:url" content="../index.html" />
+  <meta property="og:title" content="Scott Freitas" />
+  <meta property="og:description" content="Scott Freitas is a Senior Applied Scientist at Microsoft working at the intersection of applied and theoretical machine learning.
+   at Georgia Tech." />
+  <meta property="og:image" content="../images/share.html" />
+
+
+  <title>
+    
+      Top 60 ML Interview Questions &middot; Scott Freitas
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../styles.css">
+  <link href="../../use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../icons/apple-touch-icon9bea.png?v=xQdLjRyXLj">
+  <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32x329bea.png?v=xQdLjRyXLj">
+  <link rel="icon" type="image/png" sizes="16x16" href="../icons/favicon-16x169bea.png?v=xQdLjRyXLj">
+  <link rel="manifest" href="../icons/site9bea.webmanifest?v=xQdLjRyXLj">
+  <link rel="mask-icon" href="../icons/safari-pinned-tab9bea.html?v=xQdLjRyXLj" color="#313131">
+  <link rel="shortcut icon" href="../icons/favicon9bea.ico?v=xQdLjRyXLj">
+  <meta name="msapplication-TileColor" content="#313131">
+  <meta name="msapplication-config" content="../icons/browserconfig9bea.html?v=xQdLjRyXLj">
+  <meta name="theme-color" content="#ffffff">
+
+
+<!-- Google tag (gtag.js) -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-158371025-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-158371025-1');
+</script>
+
+
+
+
+</head>
+
+  <body>
+    <header id="masthead">
+	<p>
+	<h1>
+  		<a href="../index.html" title="Home">Scott Freitas</a>
+	</h1>
+	<nav>
+		<a href="../cv/index.html">CV</a>
+		<a href="../cv/index.html#publications">Publications</a>
+	</nav>
+	</p>
+</header>
+
+    <main>
+      <!-- <article class="post"> -->
+  <h1 class="page-title">Top 60 ML Interview Questions</h1>
+  </br>
+  <p>Wondering what to study for your upcoming machine learning job interviews? These are the TOP 60 most common interview questions I’ve seen in <a href="2022-phd-job-hunt.html">104 interviews across 30 companies</a>.
+<!--more-->
+While there aren’t any answers, a quick internet search reveals lots of interesting ones.</p>
+
+<h1 id="fundamentals">Fundamentals</h1>
+
+<ol>
+  <li>
+    <p>What is the bias-variance trade-off?</p>
+  </li>
+  <li>
+    <p>What should you do when your model is suffering from high bias?</p>
+  </li>
+  <li>
+    <p>How do you determine if your model is overfitting?</p>
+  </li>
+  <li>
+    <p>How would you solve the problem of overfitting?</p>
+  </li>
+  <li>
+    <p>What are some common regularization techniques? Explain the effect of L1 versus L2 regularization on a model.</p>
+  </li>
+  <li>
+    <p>What is ensemble learning?</p>
+  </li>
+  <li>
+    <p>What is dimensionality reduction? When would you use it?</p>
+  </li>
+  <li>
+    <p>How do you detect anomalies or outliers in your data? What would you do with the anomalies?</p>
+  </li>
+  <li>
+    <p>What is transfer learning, and how does it work?</p>
+  </li>
+  <li>
+    <p>What is self-supervised learning, and when would you use it?</p>
+  </li>
+  <li>
+    <p>What is weak supervision, and how would you train a model using noisy labels?</p>
+  </li>
+  <li>
+    <p>How would you identify and prevent a model from going stale when it’s deployed?</p>
+  </li>
+  <li>
+    <p>What is your exploration process when tackling a new problem?</p>
+  </li>
+</ol>
+
+<p><br /></p>
+<h1 id="data--featurization">Data &amp; Featurization</h1>
+
+<ol>
+  <li>
+    <p>How would you train a model when your data is highly imbalanced?</p>
+  </li>
+  <li>
+    <p>How would you train a model when you only have a few labels (i.e., semi-supervised)?</p>
+  </li>
+  <li>
+    <p>What is 1-hot encoding, and why is it important?</p>
+  </li>
+  <li>
+    <p>Why is it important to normalize/standardize your data?</p>
+  </li>
+  <li>
+    <p>What is the difference between normalizing and standardizing your data?</p>
+  </li>
+  <li>
+    <p>How would you tackle the problem of a shifting data distribution when deploying a model?</p>
+  </li>
+  <li>
+    <p>What types of challenges have you had to overcome when working with large-scale data?</p>
+  </li>
+</ol>
+
+<p><br /></p>
+<h1 id="models--algorithms">Models &amp; Algorithms</h1>
+
+<ol>
+  <li>
+    <p>What is the difference between a Generative and Discriminative model?</p>
+  </li>
+  <li>
+    <p>What is an example of a Parametric and a Non-Parametric model?</p>
+  </li>
+  <li>
+    <p>What is hyerparameter optimization, and what are some techniques?</p>
+  </li>
+  <li>
+    <p>How does a Decision Tree work?</p>
+  </li>
+  <li>
+    <p>How does a Random Forest work?</p>
+  </li>
+  <li>
+    <p>What are the advantages of a Random Forest model over a Decision Tree?</p>
+  </li>
+  <li>
+    <p>How does the bias-variance trade-off apply in the selection of a Decision Tree versus a Random Forest model?</p>
+  </li>
+  <li>
+    <p>Both being tree-based algorithms, how is Random Forest different from Gradient Boosting?</p>
+  </li>
+  <li>
+    <p>How does Gradient Boosting work? Is it robust to overfitting?</p>
+  </li>
+  <li>
+    <p>How does K-Means clustering work?</p>
+  </li>
+  <li>
+    <p>How does KNN work?</p>
+  </li>
+  <li>
+    <p>What is the difference between K-Means and KNN?</p>
+  </li>
+  <li>
+    <p>What are support vectors in SVM?</p>
+  </li>
+  <li>
+    <p>What are the common categories of Neural Networks, and when would you prefer one architecture over another?</p>
+  </li>
+  <li>
+    <p>What techniques can you use to explain your model’s predictions? Can you give an example for Neural Networks and Random Forest models?</p>
+  </li>
+</ol>
+
+<p><br /></p>
+<h1 id="metrics--evaluation">Metrics &amp; Evaluation</h1>
+
+<ol>
+  <li>
+    <p>How would you explain False Negative, False Positive, True Negative, and True Positive?</p>
+  </li>
+  <li>
+    <p>What is Precision and Recall?</p>
+  </li>
+  <li>
+    <p>What metrics would you use to evaluate model performance on imbalanced datasets?</p>
+  </li>
+  <li>
+    <p>What is F1 score, and when would you use it?</p>
+  </li>
+  <li>
+    <p>What is an ROC curve, and how would you use it to evaluate model performance?</p>
+  </li>
+  <li>
+    <p>How would you select an operating point on the ROC curve?</p>
+  </li>
+  <li>
+    <p>What is AUC?</p>
+  </li>
+  <li>
+    <p>What is cross validation, and when would you use it?</p>
+  </li>
+</ol>
+
+<p><br /></p>
+<h1 id="software">Software</h1>
+
+<ol>
+  <li>
+    <p>What programming languages do you usually work in?</p>
+  </li>
+  <li>
+    <p>What’s your database experience?</p>
+  </li>
+  <li>
+    <p>Have you deployed your work to a production environment before (e.g., from an internship)? What was the tech stack?</p>
+  </li>
+  <li>
+    <p>Have you worked with parallel processing or distributed systems?</p>
+  </li>
+</ol>
+
+<p><br /></p>
+<h1 id="behavioral">Behavioral</h1>
+
+<ol>
+  <li>
+    <p>Why are you excited to work for this team/company?</p>
+  </li>
+  <li>
+    <p>What makes you want to go into industry rather than academia?</p>
+  </li>
+  <li>
+    <p>What is your ideal split between research and engineering work?</p>
+  </li>
+  <li>
+    <p>Why are you interested in working on a product team?</p>
+  </li>
+  <li>
+    <p>Describe one of the biggest research challenges you’ve had to overcome.</p>
+  </li>
+  <li>
+    <p>Tell us about a scenario where you had to collaborate with others to solve a problem.</p>
+  </li>
+  <li>
+    <p>Tell us about about a situation where someone on your team wasn’t pulling their weight. How did you resolve it?</p>
+  </li>
+</ol>
+
+<p><br /></p>
+<h1 id="recruiter">Recruiter</h1>
+
+<ol>
+  <li>
+    <p>When do you expect to make a decision by?</p>
+  </li>
+  <li>
+    <p>What is your expected salary range?</p>
+  </li>
+  <li>
+    <p>Are you willing to relocate?</p>
+  </li>
+  <li>
+    <p>Do have competing offers? From whom?</p>
+  </li>
+  <li>
+    <p>When do you have to respond to those offers by?</p>
+  </li>
+  <li>
+    <p>What do you think of our offer?</p>
+  </li>
+</ol>
+
+<p><br /></p>
+<h1 id="programming">Programming</h1>
+
+<p>Check out <a href="2022-phd-job-hunt.html#ii-the-art-of-interviewing">Section II. The Art of Interviewing</a> in my previous blog post on <a href="2022-phd-job-hunt.html">Landing Your ML PhD Dream Job</a> for an idea on the types of programming questions to study.</p>
+
+<p><br /><br /></p>
+
+
+<!-- </article> -->
+
+    </main>
+    
+
+
+  </body>
+  
+
+<!-- Mirrored from www.scottfreitas.com/blog/2022-ml-job-questions by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Mar 2024 21:48:10 GMT -->
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<!-- Mirrored from www.scottfreitas.com/papers/unmask by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Mar 2024 21:48:09 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Gaegu:300,400,700" rel="stylesheet">
+
+  <!-- Enable responsiveness on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Share card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@scottafreitas" />
+  <meta name="twitter:creator" content="@scottafreitas" />
+  <meta property="og:url" content="../index.html" />
+  <meta property="og:title" content="Scott Freitas" />
+  <meta property="og:description" content="Scott Freitas is a Senior Applied Scientist at Microsoft working at the intersection of applied and theoretical machine learning.
+   at Georgia Tech." />
+  <meta property="og:image" content="../images/share.html" />
+
+
+  <title>
+    
+      Unmask &middot; Scott Freitas
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../styles.css">
+  <link href="../../use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../icons/apple-touch-icon9bea.png?v=xQdLjRyXLj">
+  <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32x329bea.png?v=xQdLjRyXLj">
+  <link rel="icon" type="image/png" sizes="16x16" href="../icons/favicon-16x169bea.png?v=xQdLjRyXLj">
+  <link rel="manifest" href="../icons/site9bea.webmanifest?v=xQdLjRyXLj">
+  <link rel="mask-icon" href="../icons/safari-pinned-tab9bea.html?v=xQdLjRyXLj" color="#313131">
+  <link rel="shortcut icon" href="../icons/favicon9bea.ico?v=xQdLjRyXLj">
+  <meta name="msapplication-TileColor" content="#313131">
+  <meta name="msapplication-config" content="../icons/browserconfig9bea.html?v=xQdLjRyXLj">
+  <meta name="theme-color" content="#ffffff">
+
+
+<!-- Google tag (gtag.js) -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-158371025-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-158371025-1');
+</script>
+
+
+
+
+</head>
+
+  <body>
+    <header id="masthead">
+	<p>
+	<h1>
+  		<a href="../index.html" title="Home">Scott Freitas</a>
+	</h1>
+	<nav>
+		<a href="../cv/index.html">CV</a>
+		<a href="../cv/index.html#publications">Publications</a>
+	</nav>
+	</p>
+</header>
+
+    <main>
+      <article class="post paper">
+  <!-- <h1 class="post-title">Unmask</h1> -->
+  
+<h1 style="text-align:center">
+UnMask: Adversarial Detection and Defense Through Robust Feature Alignment
+</h1>
+<p style="text-align:center">
+
+  
+    
+<a href="../index.html">Scott Freitas</a>,
+  
+
+  
+    
+<a href="https://www.cc.gatech.edu/~schen351">Shang-Tse Chen</a>,
+  
+
+  
+    
+Zijie J. Wang,
+  
+
+  
+    
+<a href="https://www.cc.gatech.edu/~dchau">Duen Horng (Polo) Chau</a>
+  
+
+</p>
+
+<p><br /></p>
+<figure>
+    <img class="single" src="../images/papers/unmask.png" style="display:block; margin-left: auto; margin-right: auto; max-width:900px" />
+    <figcaption class="single" style="display:block; margin-left: auto; margin-right: auto">
+      UnMask combats adversarial attacks (in red) through extracting robust features from an image (“Bicycle” at top), and comparing them to expected features of the classification (“Bird” at bottom) from the unprotected model. Low feature overlap signals an attack. UnMask rectifies misclassification using the image’s extracted features. Our approach detects 96.75% of gray-box attacks (at 9.66% false positive rate) and defends the model by correctly classifying up to 93% of adversarial images crafted by Projected Gradient Descent (PGD).
+
+    </figcaption>
+</figure>
+<p><br /></p>
+
+<h2 id="abstract">Abstract</h2>
+<p>Recent research has demonstrated that deep learning architectures are vulnerable to adversarial attacks, highlighting the vital need for defensive techniques to detect and mitigate these attacks before they occur. We present UnMask, an adversarial detection and defense framework based on robust feature alignment. UnMask combats adversarial attacks by extracting robust features (e.g., beak, wings, eyes) from an image (e.g., “bird”) and comparing them to the expected features of the classification. For example, if the extracted features for a “bird” image are wheel, saddle and frame, the model may be under attack. UnMask detects such attacks and defends the model by rectifying the misclassification, re-classifying the image based on its robust features. Our extensive evaluation shows that UnMask detects up to 96.75% of attacks, and defends the model by correctly classifying up to 93% of adversarial images produced by the current strongest attack, Projected Gradient Descent, in the gray-box setting. UnMask provides significantly better protection than adversarial training across 8 attack vectors, averaging 31.18% higher accuracy. We open source the code repository and data with this paper: https://github.com/safreita1/unmask.</p>
+
+<h2 id="citation">Citation</h2>
+<p>
+
+	<strong>UnMask: Adversarial Detection and Defense Through Robust Feature Alignment</strong>
+
+
+<br />
+
+
+	
+		
+<a href="../index.html">Scott Freitas</a>,
+	
+
+	
+		
+<a href="https://www.cc.gatech.edu/~schen351">Shang-Tse Chen</a>,
+	
+
+	
+		
+Zijie J. Wang,
+	
+
+	
+		
+<a href="https://www.cc.gatech.edu/~dchau">Duen Horng (Polo) Chau</a>
+	
+
+
+<br />
+
+<i>IEEE International Conference on Big Data (Big Data). Atlanta, GA, 2020.</i>
+
+<br />
+
+
+	<span class="pub-misc">
+	
+	
+	  <a href="unmask.html">
+	    <i class="fas fa-link" aria-hidden="true"></i> Project
+	  </a>
+	
+	
+	
+	  <a href="https://arxiv.org/pdf/2002.09576.pdf">
+	    <i class="far fa-file-pdf" aria-hidden="true"></i> PDF
+	  </a>
+	
+	
+	  <a href="https://scottfreitas.medium.com/protecting-deep-learning-systems-from-adversarial-attacks-a580e566382">
+	    <i class="fas fa-newspaper" aria-hidden="true"></i> Blog
+	  </a>
+	
+	
+	  <a href="https://www.youtube.com/watch?v=1c99eLYysH0">
+	    <i class="fas fa-film" aria-hidden="true"></i> Video
+	  </a>
+	
+	
+	
+	
+	
+	
+	  <a href="https://github.com/safreita1/unmask">
+	    <i class="fas fa-code" aria-hidden="true"></i> Code
+	  </a>
+	
+	
+	
+	
+	  <a class="cv-bibtex-icon" style="cursor:pointer" onclick="toggleBibtex('_unmask')">
+	    <i class="fas fa-book" aria-hidden="true"></i> BibTeX
+	  </a>
+	
+	
+	
+	</span>
+
+
+
+<div class="highlighter-rouge bibtex" style="display:none" id="_unmask">
+	<div class="highlight">
+		<pre>
+			
+@article{freitas2020detecting,
+  title={UnMask: Adversarial Detection and Defense Through Robust Feature Alignment},
+  author={Freitas, Scott and Chen, Shang-Tse and Wang, Zijie J. and Chau, Duen Horng},
+  journal={IEEE Big Data},
+  year={2020},
+  publisher={IEEE}
+}
+		</pre>
+	</div>
+</div>
+
+
+</p>
+
+<p><br /><br /></p>
+
+
+</article>
+
+    </main>
+    
+
+
+  </body>
+  
+    
+      <script>
+        function toggleBibtex(id) {
+
+	let bibtex = document.getElementById(id);
+
+	if (bibtex.style.display === 'none') {
+		bibtex.style.display = 'block';
+	} else {
+		bibtex.style.display = 'none';
+	}
+	
+}
+
+      </script>
+    
+  
+
+<!-- Mirrored from www.scottfreitas.com/papers/unmask by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Mar 2024 21:48:09 GMT -->
+</html>
