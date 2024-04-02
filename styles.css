@@ -2950,3 +2950,61 @@ hr {
   border: 2px solid #000; /* Highlight active thumbnail */
 }
 
+/* For Dark Mode */
+
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+/* Toggle switch styles */
+.toggle-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.toggle-checkbox {
+    display: none;
+}
+
+.toggle-label {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 10px;
+    -webkit-transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-label:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    top: 2px;
+    left: 2px;
+    background-color: white;
+    border-radius: 50%;
+    -webkit-transition: transform 0.3s ease;
+    transition: transform 0.3s ease;
+}
+
+.toggle-checkbox:checked + .toggle-label {
+    background-color: #000;
+}
+
+.toggle-checkbox:checked + .toggle-label:before {
+    -webkit-transform: translateX(20px);
+    transform: translateX(20px);
+}
+
+
+/* Add additional styles for dark mode as needed */
