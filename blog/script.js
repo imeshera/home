@@ -35,3 +35,10 @@ function showSlides(n) {
   thumbnails[slideIndex - 1].className += " active";
   captionText.innerHTML = slides[slideIndex - 1].alt || "Video";
 }
+
+// const darkModeToggle = document.getElementById('darkModeToggle');
+// const body = document.body;
+
+// darkModeToggle.addEventListener('change', () => {
+    // body.classList.toggle('dark-mode');
+// });

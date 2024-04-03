@@ -28,3 +28,5 @@ if (isDaytime) {
 darkModeToggle.addEventListener('change', () => {
     body.classList.toggle('dark-mode', darkModeToggle.checked);
 });
+
+

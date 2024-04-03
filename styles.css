@@ -3006,5 +3006,33 @@ body.dark-mode {
     transform: translateX(20px);
 }
 
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #fff; /* Set default text color for dark mode */
+}
+
+/* Force all text elements to be white in dark mode */
+body.dark-mode p,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode span,
+body.dark-mode div,
+body.dark-mode li,
+body.dark-mode label,
+body.dark-mode strong {
+    color: #fff !important;
+}
+
+/* Set link color in dark mode */
+body.dark-mode a {
+    color: #0077CC !important;
+}
+
+
 
 /* Add additional styles for dark mode as needed */
