@@ -49,4 +49,3 @@ jobs:
             git pull --rebase origin main
             git commit -m "Update Strava activities [skip ci]"
             git push origin main
-          fi
