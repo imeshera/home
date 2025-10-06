@@ -2,16 +2,15 @@ name: Update Strava Activities
 
 on:
   schedule:
-    # Run every 15 minutes (FIXED: added missing * * *)
     - cron: '*/15 * * * *'
-  workflow_dispatch: # Allows manual trigger from Actions tab
+  workflow_dispatch:
 
 jobs:
   update-strava:
     runs-on: ubuntu-latest
     
     permissions:
-      contents: write  # Needed to push changes
+      contents: write
     
     steps:
       - name: Checkout repository
@@ -23,7 +22,6 @@ jobs:
           STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
           STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
         run: |
-          # Get new access token
           TOKEN_RESPONSE=$(curl -s -X POST https://www.strava.com/oauth/token \
             -d client_id=$STRAVA_CLIENT_ID \
             -d client_secret=$STRAVA_CLIENT_SECRET \
@@ -32,20 +30,19 @@ jobs:
           
           ACCESS_TOKEN=$(echo $TOKEN_RESPONSE | jq -r '.access_token')
           
-          # Fetch last 5 activities (all types)
           curl -s -X GET "https://www.strava.com/api/v3/athlete/activities?per_page=5" \
             -H "Authorization: Bearer $ACCESS_TOKEN" > strava-activities.json
           
-          # Pretty print the JSON
           cat strava-activities.json | jq '.' > strava-activities-temp.json
           mv strava-activities-temp.json strava-activities.json
       
       - name: Commit and push if changed
         run: |
-          git config --global user.name 'Strava Bot'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git config user.name 'Strava Bot'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git pull --rebase origin main
           git add strava-activities.json
-          if ! git diff --quiet --staged; then
-            git pull --rebase origin main
+          if ! git diff --quiet HEAD strava-activities.json 2>/dev/null; then
             git commit -m "Update Strava activities [skip ci]"
             git push origin main
+          fi
