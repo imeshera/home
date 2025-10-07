@@ -1251,11 +1251,22 @@ Awarded by the Unviersity of Maryland, A. James Clark School of Engineering for 
                     details.push(`${elevationFeet} ft gain`);
                 }
                 
+                // Split details into rows of max 3 items
+                let detailsRows = [];
+                for (let i = 0; i < details.length; i += 3) {
+                    detailsRows.push(details.slice(i, i + 3));
+                }
+                
+                // Create HTML for multiple rows
+                let detailsHtml = detailsRows.map(row => 
+                    `<div style="color: #888; font-size: 7pt;">${row.join(' • ')}</div>`
+                ).join('');
+                
                 html += `
                     <div style="margin-bottom: 0.3rem; padding-bottom: 0.2rem; border-bottom: 1px solid #eee;">
                         <div style="font-weight: bold; font-size: 8pt; margin-bottom: 0px;">${title}</div>
                         <div style="color: #666; font-size: 7pt; margin-bottom: 0px;">${timestamp}</div>
-                        <div style="color: #888; font-size: 7pt;">${details.join(' • ')}</div>
+                        ${detailsHtml}
                     </div>
                 `;
             });
