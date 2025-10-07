@@ -190,6 +190,16 @@
 	</p>
 	</div>
 
+	<!-- Workout Sidebar -->
+	<div class="workout-sidebar">
+		<div style="font-size: 18px; font-family: Lato, Arial; color: #059; margin-bottom: 10px;">
+			<b>Recent Workouts</b>
+		</div>
+		<div id="wahoo-activities" style="font-size: 9pt; padding-left:0rem">
+			<p style="color: #999; font-style: italic;">Loading activities...</p>
+		</div>
+	</div>
+
 
 </div>
 
@@ -1042,17 +1052,6 @@ Awarded by the Unviersity of Maryland, A. James Clark School of Engineering for 
 
 <br />
 
-<!-- Add this section wherever you want the workout feed to appear -->
-
-<div style="padding-top: 30px;font-size: 25px; font-family: Lato, Arial; color: #059;" class="intro-title">
-    <b>Workouts I've Killed</b>
-</div>
-<hr style="margin-left: 0; margin-top:0" />
-
-<div id="wahoo-activities" style="font-size: 10pt; padding-left:0rem">
-    <p style="color: #999; font-style: italic;">Loading activities...</p>
-</div>
-
 <script>
     // Helper function to format distance
     function formatDistance(meters) {
@@ -1177,11 +1176,11 @@ Awarded by the Unviersity of Maryland, A. James Clark School of Engineering for 
                 }
                 
                 html += `
-                    <p style="margin-bottom: 0.8rem">
-                        <strong>${title}, <span style="color: #666;">${timestamp}</span></strong>
-                        <br />
-                        <span style="color: #666;">${details.join(' • ')}</span>
-                    </p>
+                    <div style="margin-bottom: 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid #eee;">
+                        <div style="font-weight: bold; font-size: 8pt; margin-bottom: 2px;">${title}</div>
+                        <div style="color: #666; font-size: 7pt; margin-bottom: 2px;">${timestamp}</div>
+                        <div style="color: #888; font-size: 7pt;">${details.join(' • ')}</div>
+                    </div>
                 `;
             });
             

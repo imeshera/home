@@ -3006,10 +3006,62 @@ body.dark-mode {
     transform: translateX(20px);
 }
 
-/* Dark mode styles */
-body.dark-mode {
-    background-color: #1a1a1a;
-    color: #fff; /* Set default text color for dark mode */
+/* Workout Sidebar Styles */
+.workout-sidebar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 280px;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.intro-text {
+    flex: 1;
+    padding-right: 300px; /* Make room for sidebar */
+    position: relative;
+}
+
+/* Dark mode styles for sidebar */
+body.dark-mode .workout-sidebar {
+    background-color: #2d2d2d;
+    border-color: #404040;
+    color: #fff;
+}
+
+body.dark-mode .workout-sidebar p,
+body.dark-mode .workout-sidebar div {
+    color: #fff !important;
+}
+
+body.dark-mode .workout-sidebar div[style*="border-bottom"] {
+    border-bottom-color: #404040 !important;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+    .workout-sidebar {
+        position: static;
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        max-height: none;
+    }
+    
+    .intro-text {
+        padding-right: 0;
+    }
+}
+
+/* Ensure intro section can accommodate sidebar */
+.intro {
+    position: relative;
 }
 
 /* Force all text elements to be white in dark mode */
