@@ -3009,17 +3009,22 @@ body.dark-mode {
 /* Workout Sidebar Styles */
 .workout-sidebar {
     position: absolute;
-    top: 200px; /* Position below the header */
-    right: 20px;
+    top: 0;
+    right: -300px; /* Position it to the right of the intro section */
     width: 280px;
     background-color: #f8f9fa;
     border: 1px solid #e9ecef;
     border-radius: 8px;
-    padding: 10px; /* Reduced from 15px */
+    padding: 10px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    max-height: none; /* Remove height restriction */
-    overflow: visible; /* Remove scroll */
+    max-height: none;
+    overflow: visible;
     z-index: 100;
+}
+
+/* Ensure intro section can accommodate sidebar */
+.intro {
+    position: relative;
 }
 
 .intro-text {
