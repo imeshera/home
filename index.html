@@ -1043,14 +1043,13 @@ Awarded by the Unviersity of Maryland, A. James Clark School of Engineering for 
 <br />
 
 <!-- Add this section wherever you want the workout feed to appear -->
-<!-- I recommend adding it after the "Selected Awards" section -->
 
 <div style="padding-top: 30px;font-size: 25px; font-family: Lato, Arial; color: #059;" class="intro-title">
     <b>Workouts I've Killed</b>
 </div>
 <hr style="margin-left: 0; margin-top:0" />
 
-<div id="strava-activities" style="font-size: 10pt; padding-left:0rem">
+<div id="wahoo-activities" style="font-size: 10pt; padding-left:0rem">
     <p style="color: #999; font-style: italic;">Loading activities...</p>
 </div>
 
@@ -1076,7 +1075,7 @@ Awarded by the Unviersity of Maryland, A. James Clark School of Engineering for 
     function formatDuration(seconds) {
         const hours = Math.floor(seconds / 3600);
         const minutes = Math.floor((seconds % 3600) / 60);
-        const secs = seconds % 60;
+        const secs = Math.round(seconds % 60);
         
         if (hours > 0) {
             return `${hours}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
@@ -1097,33 +1096,44 @@ Awarded by the Unviersity of Maryland, A. James Clark School of Engineering for 
         return `${diffDays} days ago`;
     }
     
-    // Helper function to format activity type
-    function formatActivityType(type) {
-        // Convert from Strava's format (e.g., "WeightTraining" to "WeightTraining")
-        return type.replace(/([A-Z])/g, ' $1').trim();
+    // Helper function to format workout type
+    function getWorkoutTypeName(typeId) {
+        const types = {
+            0: 'Ride', 1: 'Run', 5: 'Run', 6: 'Walk', 12: 'Ride', 
+            13: 'Ride', 15: 'Ride', 25: 'Swim', 42: 'Workout',
+            49: 'Ride', 61: 'Ride', 66: 'Yoga', 68: 'Ride'
+        };
+        return types[typeId] || 'Workout';
     }
     
     // Fetch and display activities
     async function loadActivities() {
         try {
-            const response = await fetch('strava-activities.json');
+            const response = await fetch('wahoo-activities.json');
             if (!response.ok) throw new Error('Failed to load activities');
             
-            const activities = await response.json();
-            const container = document.getElementById('strava-activities');
+            const data = await response.json();
+            const workouts = data.workouts || [];
+            const container = document.getElementById('wahoo-activities');
             
-            if (activities.length === 0) {
+            if (workouts.length === 0) {
                 container.innerHTML = '<p style="color: #d32f2f; font-size: 10pt;">No activities found.</p>';
                 return;
             }
             
             let html = '';
             
-            activities.forEach(activity => {
-                const distance = activity.distance;
-                const duration = activity.moving_time;
-                const type = formatActivityType(activity.type);
-                const timestamp = getRelativeTime(activity.start_date);
+            // Only show workouts that have been completed (have a workout_summary)
+            const completedWorkouts = workouts.filter(w => w.workout_summary).slice(0, 5);
+            
+            completedWorkouts.forEach(workout => {
+                const summary = workout.workout_summary;
+                if (!summary) return;
+                
+                const distance = parseFloat(summary.distance_accum || 0);
+                const duration = parseFloat(summary.duration_total_accum || 0);
+                const type = getWorkoutTypeName(workout.workout_type_id);
+                const timestamp = getRelativeTime(workout.starts || workout.created_at);
                 
                 // Build title line
                 let title = `${formatDistance(distance)} Mile ${type}`;
@@ -1131,31 +1141,59 @@ Awarded by the Unviersity of Maryland, A. James Clark School of Engineering for 
                     title = `0 Mile ${type}`;
                 }
                 
-                // Build details line
-                let details = formatDuration(duration);
+                // Build details array
+                let details = [];
                 
-                // Add pace for running/walking activities if distance > 0
-                if (distance > 0 && (activity.type === 'Run' || activity.type === 'Walk' || activity.type === 'Ride')) {
+                // Duration and pace
+                let durationStr = formatDuration(duration);
+                if (distance > 0 && (type === 'Run' || type === 'Walk' || type === 'Ride')) {
                     const pace = formatPace(distance, duration);
-                    details += ` at ${pace} pace`;
+                    durationStr += ` at ${pace} pace`;
                 } else if (distance === 0) {
-                    details += ' minutes';
+                    durationStr += ' minutes';
+                }
+                details.push(durationStr);
+                
+                // Calories - THIS IS THE KEY DIFFERENCE FROM STRAVA!
+                if (summary.calories_accum) {
+                    const calories = Math.round(parseFloat(summary.calories_accum));
+                    details.push(`${calories} cal`);
+                }
+                
+                // Average Heart Rate
+                if (summary.heart_rate_avg) {
+                    details.push(`${Math.round(parseFloat(summary.heart_rate_avg))} bpm avg`);
+                }
+                
+                // Average Watts (for cycling)
+                if (summary.power_avg) {
+                    details.push(`${Math.round(parseFloat(summary.power_avg))}W avg`);
+                }
+                
+                // Elevation Gain
+                if (summary.ascent_accum && parseFloat(summary.ascent_accum) > 0) {
+                    const elevationFeet = (parseFloat(summary.ascent_accum) * 3.28084).toFixed(0);
+                    details.push(`${elevationFeet} ft gain`);
                 }
                 
                 html += `
                     <p style="margin-bottom: 0.8rem">
                         <strong>${title}, <span style="color: #666;">${timestamp}</span></strong>
                         <br />
-                        <span style="color: #666;">${details}</span>
+                        <span style="color: #666;">${details.join(' • ')}</span>
                     </p>
                 `;
             });
             
-            container.innerHTML = html;
+            if (html === '') {
+                container.innerHTML = '<p style="color: #999; font-size: 10pt;">No completed workouts found.</p>';
+            } else {
+                container.innerHTML = html;
+            }
             
         } catch (error) {
             console.error('Error loading activities:', error);
-            document.getElementById('strava-activities').innerHTML = 
+            document.getElementById('wahoo-activities').innerHTML = 
                 '<p style="color: #d32f2f; font-size: 10pt;">Unable to load activities. Please try again later.</p>';
         }
     }

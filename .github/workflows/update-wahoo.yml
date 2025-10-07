@@ -1,0 +1,59 @@
+name: Update Wahoo Activities
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+jobs:
+  update-wahoo:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Fetch Wahoo Activities
+        env:
+          WAHOO_CLIENT_ID: ${{ secrets.WAHOO_CLIENT_ID }}
+          WAHOO_CLIENT_SECRET: ${{ secrets.WAHOO_CLIENT_SECRET }}
+          WAHOO_REFRESH_TOKEN: ${{ secrets.WAHOO_REFRESH_TOKEN }}
+        run: |
+          # Get new access token
+          TOKEN_RESPONSE=$(curl -s -X POST https://api.wahooligan.com/oauth/token \
+            -H "Content-Type: application/x-www-form-urlencoded" \
+            -d "client_id=$WAHOO_CLIENT_ID" \
+            -d "client_secret=$WAHOO_CLIENT_SECRET" \
+            -d "refresh_token=$WAHOO_REFRESH_TOKEN" \
+            -d "grant_type=refresh_token")
+          
+          ACCESS_TOKEN=$(echo $TOKEN_RESPONSE | jq -r '.access_token')
+          
+          if [ "$ACCESS_TOKEN" = "null" ] || [ -z "$ACCESS_TOKEN" ]; then
+            echo "Failed to get access token"
+            echo $TOKEN_RESPONSE
+            exit 1
+          fi
+          
+          # Fetch last 5 workouts
+          curl -s -X GET "https://api.wahooligan.com/v1/workouts?per_page=5" \
+            -H "Authorization: Bearer $ACCESS_TOKEN" \
+            -H "Content-Type: application/json" > wahoo-activities.json
+          
+          # Pretty print the JSON
+          cat wahoo-activities.json | jq '.' > wahoo-activities-temp.json
+          mv wahoo-activities-temp.json wahoo-activities.json
+      
+      - name: Commit and push if changed
+        run: |
+          git config user.name 'Wahoo Bot'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git pull --rebase origin main
+          git add wahoo-activities.json
+          if ! git diff --quiet HEAD wahoo-activities.json 2>/dev/null; then
+            git commit -m "Update Wahoo activities [skip ci]"
+            git push origin main
+          fi
