@@ -4,69 +4,76 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
+<!-- Ibrahim M. Eshera Personal Website Sitemap -->
 
 <url>
   <loc>https://imeshera.github.io/home/</loc>
-  <lastmod>2025-05-15T02:16:29+00:00</lastmod>
+  <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>1.00</priority>
 </url>
-<url>
-  <loc>https://imeshera.github.io/home/blog/drone-photography.html</loc>
-  <lastmod>2025-05-15T02:16:29+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://imeshera.github.io/home/blog/index.html</loc>
-  <lastmod>2025-05-15T02:16:29+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
+
 <url>
   <loc>https://imeshera.github.io/home/index.html</loc>
-  <lastmod>2025-05-15T02:16:30+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://imeshera.github.io/home/cv/index.html</loc>
-  <lastmod>2025-05-15T02:16:29+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://imeshera.github.io/home/blog/bats.html</loc>
-  <lastmod>2025-05-15T02:16:29+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://imeshera.github.io/home/blog/ev-ice.html</loc>
-  <lastmod>2025-05-15T02:16:29+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://imeshera.github.io/home/blog/airport-refueling.html</loc>
-  <lastmod>2025-05-15T02:16:29+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://imeshera.github.io/home/blog/car-log.html</loc>
-  <lastmod>2025-05-15T02:16:29+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://imeshera.github.io/home/blog/flying-log.html</loc>
-  <lastmod>2025-05-15T02:16:29+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://imeshera.github.io/home/images/blog/job_hunt/job_hunt_companies2.html</loc>
-  <lastmod>2025-05-15T02:16:29+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://imeshera.github.io/home/images/blog/job_hunt/job_hunt_interviews2.html</loc>
-  <lastmod>2025-05-15T02:16:29+00:00</lastmod>
-  <priority>0.51</priority>
+  <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.90</priority>
 </url>
 
+<url>
+  <loc>https://imeshera.github.io/home/blog/index.html</loc>
+  <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://imeshera.github.io/home/blog/drone-photography.html</loc>
+  <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.70</priority>
+</url>
+
+<url>
+  <loc>https://imeshera.github.io/home/blog/bats.html</loc>
+  <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.70</priority>
+</url>
+
+<url>
+  <loc>https://imeshera.github.io/home/blog/ev-ice.html</loc>
+  <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.70</priority>
+</url>
+
+<url>
+  <loc>https://imeshera.github.io/home/blog/airport-refueling.html</loc>
+  <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.70</priority>
+</url>
+
+<url>
+  <loc>https://imeshera.github.io/home/blog/car-log.html</loc>
+  <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.70</priority>
+</url>
+
+<url>
+  <loc>https://imeshera.github.io/home/blog/flying-log.html</loc>
+  <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.70</priority>
+</url>
+
+<url>
+  <loc>https://imeshera.github.io/home/cv/index.html</loc>
+  <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.60</priority>
+</url>
 
 </urlset>
