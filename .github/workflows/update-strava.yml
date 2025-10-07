@@ -3,7 +3,7 @@ name: Update Strava Activities
 on:
   schedule:
     # Run every 15 minutes (FIXED: added missing * * *)
-    - cron: '*/15 * * * *'
+    - cron: '*/1 * * * *'
   workflow_dispatch: # Allows manual trigger from Actions tab
 
 jobs:
