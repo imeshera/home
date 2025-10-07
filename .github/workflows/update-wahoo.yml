@@ -2,7 +2,7 @@ name: Update Wahoo Activities
 
 on:
   schedule:
-    - cron: '*/1 * * * *'
+    - cron: '*/15 * * * *'  # Every 15 minutes
   workflow_dispatch:
 
 jobs:
@@ -24,7 +24,7 @@ jobs:
         run: |
           # Use refresh token from file if it exists, otherwise use secret
           if [ -f wahoo-token.txt ]; then
-            REFRESH_TOKEN=$(cat wahoo-token.txt)
+            REFRESH_TOKEN=$(cat wahoo-token.txt | tr -d '\n\r ')
             echo "Using refresh token from file"
           else
             REFRESH_TOKEN=$WAHOO_REFRESH_TOKEN
@@ -48,8 +48,8 @@ jobs:
             exit 1
           fi
           
-          # Save the new refresh token for next time
-          echo $NEW_REFRESH_TOKEN > wahoo-token.txt
+          # Save the new refresh token for next time (without newline)
+          echo -n $NEW_REFRESH_TOKEN > wahoo-token.txt
           echo "Saved new refresh token to file"
           
           # Fetch last 5 workouts
@@ -65,9 +65,18 @@ jobs:
         run: |
           git config user.name 'Wahoo Bot'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git pull --rebase origin main
+          
+          # Add both files first
           git add wahoo-activities.json wahoo-token.txt
-          if ! git diff --quiet HEAD wahoo-activities.json wahoo-token.txt 2>/dev/null; then
+          
+          # Check if there are changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            # Pull with rebase strategy, auto-stash changes
+            git pull --rebase --autostash origin main || true
+            
+            # Commit and push
             git commit -m "Update Wahoo activities and refresh token [skip ci]"
             git push origin main
           fi
