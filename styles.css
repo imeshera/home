@@ -3095,6 +3095,13 @@ body.dark-mode a {
     color: #0077CC !important;
 }
 
+/* Hide horizontal lines in dark mode */
+body.dark-mode hr {
+    border-top: none !important;
+    border-bottom: none !important;
+    display: none !important;
+}
+
 
 
 /* Add additional styles for dark mode as needed */
