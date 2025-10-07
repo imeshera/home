@@ -3036,3 +3036,104 @@ body.dark-mode a {
 
 
 /* Add additional styles for dark mode as needed */
+
+
+
+
+/* Mini Workout Feed Styles */
+.intro-with-feed {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.intro-main {
+    flex: 1;
+}
+
+.mini-workout-feed {
+    width: 280px;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    flex-shrink: 0;
+}
+
+.mini-workout-feed h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    color: #059;
+    border-bottom: 2px solid #059;
+    padding-bottom: 8px;
+}
+
+.mini-workout-item {
+    margin-bottom: 15px;
+    font-size: 9pt;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.mini-workout-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.mini-workout-title {
+    font-weight: 600;
+    color: #333;
+    font-size: 10pt;
+    margin-bottom: 4px;
+}
+
+.mini-workout-time {
+    color: #999;
+    font-size: 8pt;
+}
+
+.mini-workout-details {
+    color: #666;
+    font-size: 8.5pt;
+    line-height: 1.4;
+    margin-top: 4px;
+}
+
+.mini-loading {
+    color: #999;
+    font-style: italic;
+    font-size: 9pt;
+}
+
+/* Dark mode support for mini feed */
+body.dark-mode .mini-workout-feed {
+    background: #2a2a2a;
+    border-color: #444;
+}
+
+body.dark-mode .mini-workout-feed h3 {
+    color: #4a9eff;
+    border-bottom-color: #4a9eff;
+}
+
+body.dark-mode .mini-workout-title {
+    color: #fff !important;
+}
+
+body.dark-mode .mini-workout-time,
+body.dark-mode .mini-workout-details,
+body.dark-mode .mini-loading {
+    color: #ccc !important;
+}
+
+@media (max-width: 900px) {
+    .intro-with-feed {
+        flex-direction: column;
+    }
+    
+    .mini-workout-feed {
+        width: 100%;
+    }
+}
