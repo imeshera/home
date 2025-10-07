@@ -3010,8 +3010,8 @@ body.dark-mode {
 .workout-sidebar {
     position: absolute;
     top: 0;
-    right: -200px; /* Position it to the right of the intro section */
-    width: 180px; /* Reduced from 220px */
+    right: -240px; /* Position it to the right of the intro section */
+    width: 220px; /* Reduced from 280px */
     background-color: #f8f9fa;
     border: 1px solid #e9ecef;
     border-radius: 8px;
