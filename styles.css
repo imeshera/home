@@ -3066,25 +3066,11 @@ body.dark-mode .workout-sidebar div[style*="border-bottom"] {
         right: auto;
         top: auto;
         display: block; /* Show on mobile as stacked content */
-        order: 999; /* Push to bottom on mobile */
-    }
-    
-    /* Ensure intro section uses flexbox for proper ordering */
-    .intro {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .intro-image {
-        order: 1;
-    }
-    
-    .intro-text {
-        order: 2;
-    }
-    
-    .workout-sidebar {
-        order: 3; /* This will push workouts to the very bottom */
+        background-color: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 }
 
