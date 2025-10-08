@@ -3058,6 +3058,7 @@ body.dark-mode .workout-sidebar div[style*="border-bottom"] {
 
 /* Mobile responsiveness */
 @media screen and (max-width: 768px) {
+    /* Move workout sidebar to after awards on mobile */
     .workout-sidebar {
         position: static;
         width: 100%;
@@ -3065,12 +3066,31 @@ body.dark-mode .workout-sidebar div[style*="border-bottom"] {
         max-height: none;
         right: auto;
         top: auto;
-        display: block; /* Show on mobile as stacked content */
+        display: block;
         background-color: #f8f9fa;
         border: 1px solid #e9ecef;
         border-radius: 8px;
         padding: 15px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        order: 999; /* This will push it to the very bottom */
+    }
+    
+    /* Ensure the main container uses flexbox for proper ordering */
+    .container.content {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* All main sections get normal order */
+    .intro,
+    .intro-title,
+    hr + div:not(.workout-sidebar) {
+        order: 1;
+    }
+    
+    /* Workout sidebar gets pushed to bottom */
+    .workout-sidebar {
+        order: 999;
     }
 }
 
