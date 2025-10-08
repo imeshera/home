@@ -1128,6 +1128,16 @@ Awarded by the Unviersity of Maryland, A. James Clark School of Engineering for 
 
 <br />
 
+<!-- Workout Section - Mobile Only (after awards) -->
+<div class="workout-sidebar-mobile">
+	<div style="font-size: 18px; font-family: Lato, Arial; color: #059; margin-bottom: 10px;">
+		<b>Recent Workouts</b>
+	</div>
+	<div id="wahoo-activities-mobile" style="font-size: 9pt; padding-left:0rem">
+		<p style="color: #999; font-style: italic;">Loading activities...</p>
+	</div>
+</div>
+
 <script>
     // Helper function to format distance
     function formatDistance(meters) {
@@ -1190,9 +1200,11 @@ Awarded by the Unviersity of Maryland, A. James Clark School of Engineering for 
             const data = await response.json();
             const workouts = data.workouts || [];
             const container = document.getElementById('wahoo-activities');
+            const mobileContainer = document.getElementById('wahoo-activities-mobile');
             
             if (workouts.length === 0) {
                 container.innerHTML = '<p style="color: #d32f2f; font-size: 10pt;">No activities found.</p>';
+                if (mobileContainer) mobileContainer.innerHTML = '<p style="color: #d32f2f; font-size: 10pt;">No activities found.</p>';
                 return;
             }
             
@@ -1273,13 +1285,18 @@ Awarded by the Unviersity of Maryland, A. James Clark School of Engineering for 
             
             if (html === '') {
                 container.innerHTML = '<p style="color: #999; font-size: 10pt;">No completed workouts found.</p>';
+                if (mobileContainer) mobileContainer.innerHTML = '<p style="color: #999; font-size: 10pt;">No completed workouts found.</p>';
             } else {
                 container.innerHTML = html;
+                if (mobileContainer) mobileContainer.innerHTML = html;
             }
             
         } catch (error) {
             console.error('Error loading activities:', error);
             document.getElementById('wahoo-activities').innerHTML = 
+                '<p style="color: #d32f2f; font-size: 10pt;">Unable to load activities. Please try again later.</p>';
+            const mobileContainer = document.getElementById('wahoo-activities-mobile');
+            if (mobileContainer) mobileContainer.innerHTML = 
                 '<p style="color: #d32f2f; font-size: 10pt;">Unable to load activities. Please try again later.</p>';
         }
     }
