@@ -3067,6 +3067,24 @@ body.dark-mode .workout-sidebar div[style*="border-bottom"] {
         top: auto;
         display: block; /* Show on mobile as stacked content */
     }
+    
+    /* Ensure intro section uses flexbox for proper ordering */
+    .intro {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .intro-image {
+        order: 1;
+    }
+    
+    .intro-text {
+        order: 2;
+    }
+    
+    .workout-sidebar {
+        order: 3; /* This will push workouts to the very bottom */
+    }
 }
 
 /* Ensure intro section can accommodate sidebar */
