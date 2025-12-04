@@ -14,6 +14,7 @@
       "workout_summary": {
         "id": 366500598,
         "name": "Workout",
+        "started_at": "2025-11-22T23:39:03.000Z",
         "ascent_accum": null,
         "cadence_avg": null,
         "calories_accum": "1284.0",
@@ -57,6 +58,7 @@
       "workout_summary": {
         "id": 366130602,
         "name": "Workout",
+        "started_at": "2025-11-20T20:22:25.000Z",
         "ascent_accum": null,
         "cadence_avg": null,
         "calories_accum": "1779.0",
@@ -100,6 +102,7 @@
       "workout_summary": {
         "id": 365003085,
         "name": "Workout",
+        "started_at": "2025-11-14T22:31:57.000Z",
         "ascent_accum": "0.0",
         "cadence_avg": null,
         "calories_accum": "869.0",
@@ -143,6 +146,7 @@
       "workout_summary": {
         "id": 364845332,
         "name": "Workout",
+        "started_at": "2025-11-13T23:07:09.000Z",
         "ascent_accum": null,
         "cadence_avg": null,
         "calories_accum": "1739.0",
@@ -186,6 +190,7 @@
       "workout_summary": {
         "id": 364647489,
         "name": "Workout",
+        "started_at": "2025-11-12T22:39:25.000Z",
         "ascent_accum": null,
         "cadence_avg": null,
         "calories_accum": "1630.0",
